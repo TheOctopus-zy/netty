@@ -1,4 +1,4 @@
-package nio.channel;
+package nio.channel.mappedbytebuffer;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -12,7 +12,7 @@ public class MappedByteBufferTest {
 
     public static void main(String[] args) throws IOException {
         //创建一个文件操作IO对象
-        RandomAccessFile accessFile = new RandomAccessFile("a.txt", "rw");
+        RandomAccessFile accessFile = new RandomAccessFile("file\\202041201.txt", "rw");
         //获取channel对象
         FileChannel channel = accessFile.getChannel();
         MappedByteBuffer map = channel.map(FileChannel.MapMode.READ_WRITE, 0, 5);
