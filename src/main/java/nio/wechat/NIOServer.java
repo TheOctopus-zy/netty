@@ -30,9 +30,10 @@ public class NIOServer {
 
         while (true) {
             try {
+                //select()是一个阻塞式的方式，如果当前没有任何channel连接，则一直处于等待状态
+                //知道出现有channel连接时才会释放，即下面代码才会执行
                 selector.select();
                 Set<SelectionKey> selectionKeys = selector.selectedKeys();
-
                 selectionKeys.forEach(selectionKey -> {
                     final SocketChannel client;
                     try {
